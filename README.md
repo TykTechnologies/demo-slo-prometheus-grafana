@@ -89,6 +89,8 @@ docker compose down
 
 ## How this works
 
+TODO: work in progress
+
 ### Tyk Gateway
 
 ### Tyk Pump
