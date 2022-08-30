@@ -13,11 +13,11 @@ PLEASE CHANGE THIS FILE NAME TO BE "README.md" so GitHub can automatically surfa
 
 ## About
 
-This is a demo project, using an OSS deployment of Tyk Gateway, Tyk Pump, Prometheus, Grafana and K6 running on Docker. 
+This is a demo project, using an OSS deployment of Tyk Gateway, Tyk Pump, Prometheus, Grafana and K6 running on Docker, that shows how to configure Tyk Pump, Prometheus and Grafana to set-up a dashboard for SLIs and SLOs.
   
 ## Purpose
 
-You can use it to explore the Prometheus metrics exposed by Tyk Pump in Grafana, to set-up SLIs and SLOs. 
+You can use it to explore the Prometheus metrics exposed by Tyk Pump and use them to set-up SLIs and SLOs in Grafana.
   
 ## Deploy and run the demo
 
