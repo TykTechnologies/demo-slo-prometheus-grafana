@@ -12,14 +12,82 @@ PLEASE CHANGE THIS FILE NAME TO BE "README.md" so GitHub can automatically surfa
 -->
 
 ## About
-This repo is doing ...
+
+This is a demo project, using an OSS deployment of Tyk, Prometheus, Grafana and K6 running on Docker. 
+
+- Tyk Gateway
+    - Health check runs on [http://localhost:8080/hello](http://localhost:8080/hello)
+    - httpbin API runs on [http://localhost:8080/httpbin/](http://localhost:8080/httpbin/)
+    - httpstatus API runs on [http://localhost:8080/users/](http://localhost:8080/users/)
+- Tyk Pump
+    - Health check runs on [http://localhost:8083/health](http://localhost:8083/health)
+    - Prometheus metrics endpoint runs on [http://localhost:8084/metrics](http://localhost:8084/metrics)
+- Prometheus runs on [http://localhost:9090/](http://localhost:9090/)
+- Grafana OSS runs on [http://localhost:3000/](http://localhost:3000/)
+    - The default log-in at start is admin/admin, once logged in you will be prompted for a new password
   
 ## Purpose
 You can use it for ....
   
-## Getting started  
-To get started do ... <!-- add code snippet etc -->
-  
+## Deploy
+
+### Download
+
+git clone https://github.com/TykTechnologies/demo-slo-prometheus-grafana.git
+
+### Run
+
+#### Start the services
+
+```
+docker compose up -d
+```
+
+#### Run demo traffic with K6
+
+The load script [load.js](./deployments/k6/load.js) will run for 15 minutes.
+
+```
+ docker compose run  k6 run /scripts/load.js
+```
+
+#### Stop the services
+
+```
+docker compose stop
+```
+
+#### Remove the services
+
+```
+docker compose down
+```
+
+## Prometheus
+
+Here are the Prometheus queries used in the Grafana dashboard:
+
+TODO
+
+## Grafana
+
+
+Go to [Grafana](http://localhost:3000/) in your browser and open the dashboard called *SLOs for APIs managed by Tyk*.
+
+## SLIs and SLOs
+
+Example definition inspired from: https://sre.google/workbook/slo-document/. See also https://sre.google/workbook/implementing-slos/#what-to-measure-using-slis and https://sre.google/workbook/alerting-on-slos/ to learn more about SLIs and SLOs.
+
+
+__SLI: the proportion of successful requests, as measured from Tyk API Gateway__
+
+* Any HTTP status other than 500–599 is considered successful.
+* count of "api" http_requests which do not have a 5XX status code divided by count of all "api" http_requests
+
+__SLO__
+
+* 95% successful requests
+
 
 ## PRs
 Explain the requirements for a PR...
