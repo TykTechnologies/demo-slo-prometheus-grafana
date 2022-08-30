@@ -13,7 +13,7 @@ PLEASE CHANGE THIS FILE NAME TO BE "README.md" so GitHub can automatically surfa
 
 ## About
 
-This is a demo project, using an OSS deployment of Tyk Gateway, Tyk Pump, Prometheus, Grafana and K6 running on Docker, that shows how to configure Tyk Pump, Prometheus and Grafana to set-up a dashboard for SLIs and SLOs.
+This is a demo project running on Docker, that shows how to configure [Tyk Gateway](https://github.com/TykTechnologies/tyk), [Tyk Pump](https://github.com/TykTechnologies/tyk-pump), Prometheus and Grafana to set-up a dashboard for SLIs and SLOs.
   
 ## Purpose
 
@@ -35,11 +35,11 @@ docker compose up -d
 
 3. Verify that all services are running
 
-- [Tyk Gateway](https://github.com/TykTechnologies/tyk)
+- Tyk Gateway
     - Health check runs on [http://localhost:8080/hello](http://localhost:8080/hello)
     - httpbin API runs on [http://localhost:8080/httpbin/](http://localhost:8080/httpbin/)
     - httpstatus API runs on [http://localhost:8080/users/](http://localhost:8080/users/)
-- [Tyk Pump](https://github.com/TykTechnologies/tyk-pump)
+- Tyk Pump
     - Health check runs on [http://localhost:8083/health](http://localhost:8083/health)
     - Prometheus metrics endpoint runs on [http://localhost:8084/metrics](http://localhost:8084/metrics)
 - Prometheus runs on [http://localhost:9090/](http://localhost:9090/)
