@@ -39,7 +39,7 @@ docker compose up -d
 - Tyk Gateway
     - Health check runs on [http://localhost:8080/hello](http://localhost:8080/hello)
     - httpbin API runs on [http://localhost:8080/httpbin/](http://localhost:8080/httpbin/)
-    - httpstatus API runs on [http://localhost:8080/users/](http://localhost:8080/users/)
+    - httpstatus API runs on [http://localhost:8080/status/](http://localhost:8080/status/)
 - Tyk Pump
     - Health check runs on [http://localhost:8083/health](http://localhost:8083/health)
     - Prometheus metrics endpoint runs on [http://localhost:8084/metrics](http://localhost:8084/metrics)
