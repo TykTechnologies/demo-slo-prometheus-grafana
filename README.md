@@ -1,30 +1,52 @@
-# tyk-templates
+# SLOs for your APIs with Tyk, Prometheus and Grafana
+<!-- Tell other people why your project is useful, what they can do with your project, and how they can use it.
+As explained in GitHub it typically includes information on:
+1. What the project does
+2. Why the project is useful
+3. How users can get started with the project
+4. Where users can get help with your project
+5. Who maintains and contributes to the project
+For more details check GitHub [doc](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
 
-Template repo for all your template needs.
-- **For a new repo** 
-  - Create your repository using this repo as a template ([GitHub instruction](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template)).
-  - Rename the file `./.github/README-template.md` to `./.github/README.md` (remove the `-template` part) to get GitHub to display this README
-  - Update `./.github/README.md` with the relevant content for your repo
-- **For an existing repo** please make sure your repo has all the required templates which are defined in the [section below](#current-template-in-the-repo) by simply copying the relevant templates or add content that is in the template but not in your repo files.
+PLEASE CHANGE THIS FILE NAME TO BE "README.md" so GitHub can automatically surface it to repository visitors.
+-->
 
-## Asking users To sign CLA on submitting a pull request(for existing repo)
-For existing repo you can add the feature that ask contributors to sign the CLA on submitting a pull request by copying the [CLA file](.github/workflows/cla.yml) to your `.github/workflows/cla.yml` folder.
+## About
+This repo is doing ...
+  
+## Purpose
+You can use it for ....
+  
+## Getting started  
+To get started do ... <!-- add code snippet etc -->
+  
 
-## Current template in the repo
+## PRs
+Explain the requirements for a PR...
+  
+#### SLA
+First response (clarifying questions/guidance on improvements/answering questions) - target of 48 hours
+Detailed review and feedback on PRs - target 7 days
+  
+  
+  
+## Bugs
 
-1. [Contribution guidelines](./CONTRIBUTING.md) 
-2. [PR template](./.github/pull_request_template.md)
-3. [Bug report template](./.github/ISSUE_TEMPLATE/bug_report.md)
-4. [Feature request template](./.github/ISSUE_TEMPLATE/feature_request.md) 
-5. [Contributor License Agreement](https://github.com/TykTechnologies/tyk/blob/master/CLA.md) - This will enforce your contributors to sign the CLA on the first time they submit a PR.
-6. [License](./LICENSE)  *from tyk-gateway*
-7. [Default Repo README](./.github/README-template.md), which resides in `/.github`
+#### SLA
+First response (clarifying questions/guidance on improvements/answering questions) - target of 48 hours
+  
+  
+  
+## Features
+  
+#### SLA
+First response (clarifying questions/guidance on improvements/answering questions) - target 72 hours
+  
+### Questions
+For question on products, please use [Tyk Community forum](https://community.tyk.io/).
+  <br>
+Clients can also use support@tyk.io.
+   <br>
+Potential clients and evaluators, please use info@tyk.io.
 
-## Backlog / WIP
-1. Common GitHub workflows you use across all the repo (e.g. spell checker)
-2. Make releases to this repo.
-
-
-## Adjustments / Changes / Updates
-Please feel free to submit PRs, bugs and feature request when you think the templates needs fix or improvement.
-
+  
