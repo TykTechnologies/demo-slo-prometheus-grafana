@@ -68,6 +68,7 @@ You should see the data coming in:
 ![tyk_grafana_initial](https://user-images.githubusercontent.com/17831497/187455646-077ac8a2-8279-4c23-8ca2-d276c0b2180b.png)
 
 You can also filter the data per API:
+
 <img width="472" alt="tyk_grafana_select_api" src="https://user-images.githubusercontent.com/17831497/187456007-e989119e-053a-4ff7-bc3a-5afd92482d5b.png">
 
 
