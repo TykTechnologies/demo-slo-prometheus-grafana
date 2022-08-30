@@ -14,10 +14,11 @@ PLEASE CHANGE THIS FILE NAME TO BE "README.md" so GitHub can automatically surfa
 ## About
 
 This is a demo project running on Docker, that shows how to configure [Tyk Gateway](https://github.com/TykTechnologies/tyk), [Tyk Pump](https://github.com/TykTechnologies/tyk-pump), Prometheus and Grafana to set-up a dashboard with SLIs and SLOs for your APIs managed by Tyk.
-  
-## Purpose
 
 You can use it to explore the Prometheus metrics exposed by Tyk Pump and use them to set-up SLIs and SLOs in Grafana.
+
+![SLOs-for-APIs-managed-by-Tyk-Dashboards-Grafana](https://user-images.githubusercontent.com/17831497/187458994-a8bc0eae-e9b6-4af5-9233-034dc981bae6.png)
+
   
 ## Deploy and run the demo
 
