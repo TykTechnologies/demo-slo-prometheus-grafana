@@ -48,8 +48,7 @@ docker compose up -d
 
 4. Generate traffic
 
-K6 is used to generate traffic to the API endpoints
-The load script [load.js](./deployments/k6/load.js) will run for 15 minutes.
+K6 is used to generate traffic to the API endpoints. The load script [load.js](./deployments/k6/load.js) will run for 15 minutes.
 
 ```
  docker compose run  k6 run /scripts/load.js
@@ -57,6 +56,7 @@ The load script [load.js](./deployments/k6/load.js) will run for 15 minutes.
 
 5. Check out the dashboard in Grafana
 
+Go to [Grafana](http://localhost:3000/) in your browser and open the dashboard called *SLOs for APIs managed by Tyk*.
 
 
 ## Tear down
@@ -79,7 +79,7 @@ docker compose down
 ## Grafana
 
 
-Go to [Grafana](http://localhost:3000/) in your browser and open the dashboard called *SLOs for APIs managed by Tyk*.
+
 
 ## SLIs and SLOs
 
