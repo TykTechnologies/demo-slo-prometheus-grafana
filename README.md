@@ -13,7 +13,7 @@ PLEASE CHANGE THIS FILE NAME TO BE "README.md" so GitHub can automatically surfa
 
 ## About
 
-This is a demo project running on Docker, that shows how to configure [Tyk Gateway](https://github.com/TykTechnologies/tyk), [Tyk Pump](https://github.com/TykTechnologies/tyk-pump), Prometheus and Grafana to set-up a dashboard for SLIs and SLOs.
+This is a demo project running on Docker, that shows how to configure [Tyk Gateway](https://github.com/TykTechnologies/tyk), [Tyk Pump](https://github.com/TykTechnologies/tyk-pump), Prometheus and Grafana to set-up a dashboard with SLIs and SLOs for your APIs managed by Tyk.
   
 ## Purpose
 
@@ -73,15 +73,15 @@ Remove the services
 docker compose down
 ```
 
-## SLIs and SLOs
+## How this works
 
+### Tyk Gateway
 
-## Grafana
+### Tyk Pump
 
+### Prometheus
 
-
-
-## SLIs and SLOs
+todo: add details about the query
 
 Example definition inspired from: https://sre.google/workbook/slo-document/. See also https://sre.google/workbook/implementing-slos/#what-to-measure-using-slis and https://sre.google/workbook/alerting-on-slos/ to learn more about SLIs and SLOs.
 
@@ -90,10 +90,12 @@ __SLI: the proportion of successful requests, as measured from Tyk API Gateway__
 
 * Any HTTP status other than 500–599 is considered successful.
 * count of "api" http_requests which do not have a 5XX status code divided by count of all "api" http_requests
+* SLO: 95% successful requests
 
-__SLO__
+### Grafana
 
-* 95% successful requests
+
+
 
 
 ## PRs
