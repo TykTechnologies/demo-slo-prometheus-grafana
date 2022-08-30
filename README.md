@@ -30,6 +30,7 @@ git clone https://github.com/TykTechnologies/demo-slo-prometheus-grafana.git
 2. Start the services
 
 ```
+cd ./demo-slo-prometheus-grafana/
 docker compose up -d
 ```
 
