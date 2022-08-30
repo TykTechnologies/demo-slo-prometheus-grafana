@@ -13,61 +13,68 @@ PLEASE CHANGE THIS FILE NAME TO BE "README.md" so GitHub can automatically surfa
 
 ## About
 
-This is a demo project, using an OSS deployment of Tyk, Prometheus, Grafana and K6 running on Docker. 
-
-- Tyk Gateway
-    - Health check runs on [http://localhost:8080/hello](http://localhost:8080/hello)
-    - httpbin API runs on [http://localhost:8080/httpbin/](http://localhost:8080/httpbin/)
-    - httpstatus API runs on [http://localhost:8080/users/](http://localhost:8080/users/)
-- Tyk Pump
-    - Health check runs on [http://localhost:8083/health](http://localhost:8083/health)
-    - Prometheus metrics endpoint runs on [http://localhost:8084/metrics](http://localhost:8084/metrics)
-- Prometheus runs on [http://localhost:9090/](http://localhost:9090/)
-- Grafana OSS runs on [http://localhost:3000/](http://localhost:3000/)
-    - The default log-in at start is admin/admin, once logged in you will be prompted for a new password
+This is a demo project, using an OSS deployment of Tyk Gateway, Tyk Pump, Prometheus, Grafana and K6 running on Docker. 
   
 ## Purpose
-You can use it for ....
+
+You can use it to explore the Prometheus metrics exposed by Tyk Pump in Grafana, to set-up SLIs and SLOs. 
   
-## Deploy
+## Deploy and run the demo
 
-### Download
+1. Clone this repository:
 
+```
 git clone https://github.com/TykTechnologies/demo-slo-prometheus-grafana.git
+```
 
-### Run
-
-#### Start the services
+2. Start the services
 
 ```
 docker compose up -d
 ```
 
-#### Run demo traffic with K6
+3. Verify that all services are running
 
+- [Tyk Gateway](https://github.com/TykTechnologies/tyk)
+    - Health check runs on [http://localhost:8080/hello](http://localhost:8080/hello)
+    - httpbin API runs on [http://localhost:8080/httpbin/](http://localhost:8080/httpbin/)
+    - httpstatus API runs on [http://localhost:8080/users/](http://localhost:8080/users/)
+- [Tyk Pump](https://github.com/TykTechnologies/tyk-pump)
+    - Health check runs on [http://localhost:8083/health](http://localhost:8083/health)
+    - Prometheus metrics endpoint runs on [http://localhost:8084/metrics](http://localhost:8084/metrics)
+- Prometheus runs on [http://localhost:9090/](http://localhost:9090/)
+- Grafana OSS runs on [http://localhost:3000/](http://localhost:3000/)
+    - The default log-in at start is admin/admin, once logged in you will be prompted for a new password
+
+4. Generate traffic
+
+K6 is used to generate traffic to the API endpoints
 The load script [load.js](./deployments/k6/load.js) will run for 15 minutes.
 
 ```
  docker compose run  k6 run /scripts/load.js
 ```
 
-#### Stop the services
+5. Check out the dashboard in Grafana
+
+
+
+## Tear down
+
+Stop the services
 
 ```
 docker compose stop
 ```
 
-#### Remove the services
+Remove the services
 
 ```
 docker compose down
 ```
 
-## Prometheus
+## SLIs and SLOs
 
-Here are the Prometheus queries used in the Grafana dashboard:
-
-TODO
 
 ## Grafana
 
