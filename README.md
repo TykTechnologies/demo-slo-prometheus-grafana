@@ -55,9 +55,20 @@ K6 is used to generate traffic to the API endpoints. The load script [load.js](.
  docker compose run  k6 run /scripts/load.js
 ```
 
+You will see K6 output in your terminal:
+
+<img width="963" alt="K6" src="https://user-images.githubusercontent.com/17831497/187454878-c1182107-7de2-4cd0-b572-9bcc80dde6c3.png">
+
+
 5. Check out the dashboard in Grafana
 
-Go to [Grafana](http://localhost:3000/) in your browser and open the dashboard called *SLOs for APIs managed by Tyk*.
+Go to [Grafana](http://localhost:3000/) in your browser (initial user/pwd: admin/admin) and open the dashboard called *SLOs for APIs managed by Tyk*.
+
+You should see the data coming in:
+![tyk_grafana_initial](https://user-images.githubusercontent.com/17831497/187455646-077ac8a2-8279-4c23-8ca2-d276c0b2180b.png)
+
+You can also filter the data per API:
+<img width="472" alt="tyk_grafana_select_api" src="https://user-images.githubusercontent.com/17831497/187456007-e989119e-053a-4ff7-bc3a-5afd92482d5b.png">
 
 
 ## Tear down
