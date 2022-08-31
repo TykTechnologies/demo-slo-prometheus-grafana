@@ -1,4 +1,4 @@
-# SLIs and SLOs with Prometheus and Grafana for your APIs managed by Tyk
+# SLIs and SLOs with Prometheus and Grafana for your APIs
 
 ## About
 
