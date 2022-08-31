@@ -113,13 +113,13 @@ In [slos.rules.yml](./deployments/prometheus/slos.rules.yml) we calculate the ra
 ## Contribute
 
 You are welcome to contribute by 
-* asking questions / suggesting improvment / reporting issues in this GitHub project or in the [Tyk Community forum](https://community.tyk.io/)
-* making pull request - see the [contributing guide](./CONTRIBUTING.md)
+* asking questions / suggesting improvment / reporting issues in this [GitHub project](https://github.com/TykTechnologies/demo-slo-prometheus-grafana/issues) or in the [Tyk Community forum](https://community.tyk.io/)
+* making pull request, see the [contributing guide](./CONTRIBUTING.md)
 
-  
+
 ## Support, questions & feedback
 
-This is a demo project, using [Tyk Gateway](https://github.com/TykTechnologies/tyk) and [Tyk Pump](https://github.com/TykTechnologies/tyk-pump).
+This is a demo project, using [Tyk Gateway](https://github.com/TykTechnologies/tyk) and [Tyk Pump](https://github.com/TykTechnologies/tyk-pump) currently using release candidate (RC) versions of Tyk Gateway and Tyk Pump. 
 
 For question about our products, please use [Tyk Community forum](https://community.tyk.io/).
 Clients can also use support@tyk.io.
