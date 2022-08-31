@@ -90,53 +90,32 @@ docker compose down
 * Prometheus
   * [prometheus.yml](./deployments/prometheus/prometheus.yml) is configured to automatically scrape Tyk Pump's metric endpoint
   * [slos.rules.yml](./deployments/prometheus/slos.rules.yml) is used to calculate additional metrics needed for the remaining error budget
- * Grafana
+* Grafana
   * [prometheus_ds.yml](./deployments/grafana/provisioning/datasources/prometheus_ds.yml) is configured to connect Grafana automatically to Prometheus
   * [SLOs-for-APIs-managed-by-Tyk.json](./deployments/grafana/provisioning/dashboards/SLOs-for-APIs-managed-by-Tyk.json) is the dashboard definition
 
 
-### SLI and SLO
+### SLIs and SLOs
+
+Definition and example inspired from https://sre.google/workbook/slo-document/, https://landing.google.com/sre/workbook/chapters/alerting-on-slos/ and https://github.com/google/prometheus-slo-burn-example/blob/master/prometheus/slos.rules.yml.
+
+You will see different indicators displayed on the Grafana dashboard. 
+
+To calculate the SLO and the displayed error budget remaining, we use the following SLI/SLO:
+* SLI: the proportion of successful HTTP requests, as measured from Tyk API Gateway
+  *  Any HTTP status other than 500–599 is considered successful.
+  *  count of http_requests which do not have a 5XX status code divided by count of all http_requests
+*  SLO: 95% successful requests
+
+In [slos.rules.yml](./deployments/prometheus/slos.rules.yml) we calculate the rate of error per requests for the last 10 minute in `job:slo_errors_per_request:ratio_rate10m`. With `job:error_budget:remaining` we calculate the error budget remaining in percent. This is what we display in the Grafana dashboard. We use a threshold of 95% in the dashboard (every value below 95% is red).
 
 
-todo: add details about the query
-
-Example definition inspired from: https://sre.google/workbook/slo-document/. See also https://sre.google/workbook/implementing-slos/#what-to-measure-using-slis and https://sre.google/workbook/alerting-on-slos/ to learn more about SLIs and SLOs.
+## Contribute
 
 
-__SLI: the proportion of successful requests, as measured from Tyk API Gateway__
-
-* Any HTTP status other than 500–599 is considered successful.
-* count of "api" http_requests which do not have a 5XX status code divided by count of all "api" http_requests
-* SLO: 95% successful requests
-
-
-
-## PRs
-Explain the requirements for a PR...
   
-#### SLA
-First response (clarifying questions/guidance on improvements/answering questions) - target of 48 hours
-Detailed review and feedback on PRs - target 7 days
-  
-  
-  
-## Bugs
-
-#### SLA
-First response (clarifying questions/guidance on improvements/answering questions) - target of 48 hours
-  
-  
-  
-## Features
-  
-#### SLA
-First response (clarifying questions/guidance on improvements/answering questions) - target 72 hours
-  
-### Questions
+## Questions & Feedback
 For question on products, please use [Tyk Community forum](https://community.tyk.io/).
-  <br>
 Clients can also use support@tyk.io.
-   <br>
 Potential clients and evaluators, please use info@tyk.io.
-
   
