@@ -88,11 +88,11 @@ docker compose down
 * K6 will use the load script [load.js](./deployments/k6/load.js) to generate demo traffic to the API endpoints
 * Tyk Pump is configured to expose a metric endpoint for Prometheus ([see config](./deployments/tyk-pump/pump.conf)) with two custom metrics called `tyk_http_requests_total` and `tyk_http_latency`. Tyk Pump version >= 1.6. is needed for custom metrics.
 * Prometheus
-  * ([prometheus.yml](./deployments/prometheus/prometheus.yml)) is configured to automatically scrape Tyk Pump's metric endpoint
-  * ([slos.rules.yml](./deployments/prometheus/slos.rules.yml)) is used to calculate additional metrics needed for the remaining error budget
+  * [prometheus.yml](./deployments/prometheus/prometheus.yml) is configured to automatically scrape Tyk Pump's metric endpoint
+  * [slos.rules.yml](./deployments/prometheus/slos.rules.yml) is used to calculate additional metrics needed for the remaining error budget
  * Grafana
-  * ([prometheus_ds.yml](./deployments/grafana/prometheus_ds.yml)) is configured to connect Grafana automatically to Prometheus
-  * ([SLOs-for-APIs-managed-by-Tyk.json](./deployments/grafana/provisioning/dashboards/SLOs-for-APIs-managed-by-Tyk.json) is the dashboard definition
+  * [prometheus_ds.yml](./deployments/grafana/provisioning/datasources/prometheus_ds.yml) is configured to connect Grafana automatically to Prometheus
+  * [SLOs-for-APIs-managed-by-Tyk.json](./deployments/grafana/provisioning/dashboards/SLOs-for-APIs-managed-by-Tyk.json) is the dashboard definition
 
 
 ### SLI and SLO
