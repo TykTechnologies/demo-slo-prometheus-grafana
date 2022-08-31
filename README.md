@@ -122,8 +122,6 @@ You are welcome to contribute by
 This is a demo project, using [Tyk Gateway](https://github.com/TykTechnologies/tyk) and [Tyk Pump](https://github.com/TykTechnologies/tyk-pump) currently using release candidate (RC) versions of Tyk Gateway and Tyk Pump. 
 
 For question about our products, please use [Tyk Community forum](https://community.tyk.io/).
-
-Clients can also use support@tyk.io.
-
-Potential clients and evaluators, please use info@tyk.io.
+<br />Clients can also use support@tyk.io.
+<br />Potential clients and evaluators, please use info@tyk.io.
   
