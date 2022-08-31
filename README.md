@@ -112,8 +112,9 @@ In [slos.rules.yml](./deployments/prometheus/slos.rules.yml) we calculate the ra
 
 ## Contribute
 
-You are welcome to contribute by asking questions in this GitHub project or in the [Tyk Community forum](https://community.tyk.io/).
-
+You are welcome to contribute by 
+* asking questions / suggesting improvment / reporting issues in this GitHub project or in the [Tyk Community forum](https://community.tyk.io/)
+* making pull request - see the [contributing guide](./CONTRIBUTING.md)
 
   
 ## Support, questions & feedback
