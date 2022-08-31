@@ -80,12 +80,23 @@ docker compose down
 
 ![slo_grafana](https://github.com/TykTechnologies/demo-slo-prometheus-grafana/blob/main/doc/slo_grafana.png)
 
+### Configuration
 
-### Tyk Gateway
+* Tyk API Gateway is configured to expose two API endpoint:
+  *  httpbin ([see .json config](./deployments/tyk-gateway/apps/httpbin.json))
+  *  httpstatus ([see .json config](./deployments/tyk-gateway/apps/httpstatus.json))
+* K6 will use the load script [load.js](./deployments/k6/load.js) to generate demo traffic to the API endpoints
+* Tyk Pump is configured to expose a metric endpoint for Prometheus ([see config](./deployments/tyk-pump/pump.conf)) with two custom metrics called `tyk_http_requests_total` and `tyk_http_latency`. Tyk Pump version >= 1.6. is needed for custom metrics.
+* Prometheus
+  * ([prometheus.yml](./deployments/prometheus/prometheus.yml)) is configured to automatically scrape Tyk Pump's metric endpoint
+  * ([slos.rules.yml](./deployments/prometheus/slos.rules.yml)) is used to calculate additional metrics needed for the remaining error budget
+ * Grafana
+  * ([prometheus_ds.yml](./deployments/grafana/prometheus_ds.yml)) is configured to connect Grafana automatically to Prometheus
+  * ([SLOs-for-APIs-managed-by-Tyk.json](./deployments/grafana/provisioning/dashboards/SLOs-for-APIs-managed-by-Tyk.json) is the dashboard definition
 
-### Tyk Pump
 
-### Prometheus
+### SLI and SLO
+
 
 todo: add details about the query
 
@@ -97,10 +108,6 @@ __SLI: the proportion of successful requests, as measured from Tyk API Gateway__
 * Any HTTP status other than 500–599 is considered successful.
 * count of "api" http_requests which do not have a 5XX status code divided by count of all "api" http_requests
 * SLO: 95% successful requests
-
-### Grafana
-
-
 
 
 
