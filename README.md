@@ -2,9 +2,9 @@
 
 ## About
 
-This is a demo project running on Docker, that shows how to configure [Tyk Gateway](https://github.com/TykTechnologies/tyk), [Tyk Pump](https://github.com/TykTechnologies/tyk-pump), Prometheus and Grafana to set-up a dashboard with SLIs and SLOs for your APIs managed by Tyk.
+This is a demo project running on Docker, that shows how to configure [Tyk Gateway](https://github.com/TykTechnologies/tyk), [Tyk Pump](https://github.com/TykTechnologies/tyk-pump), [Prometheus](https://prometheus.io/) and [Grafana OSS](https://grafana.com/grafana/) to set-up a dashboard with SLIs and SLOs for your APIs managed by Tyk.
 
-You can use it to explore the Prometheus metrics exposed by Tyk Pump and use them to set-up SLIs and SLOs with Prometheus and Grafana. 
+You can use it to explore the Prometheus metrics exposed by Tyk Pump and use them in a Grafana dashboard.
 
 ![SLOs-for-APIs-managed-by-Tyk-Dashboards-Grafana](https://user-images.githubusercontent.com/17831497/187458994-a8bc0eae-e9b6-4af5-9233-034dc981bae6.png)
 
@@ -39,7 +39,7 @@ docker compose up -d
 
 4. Generate traffic
 
-K6 is used to generate traffic to the API endpoints. The load script [load.js](./deployments/k6/load.js) will run for 15 minutes.
+[K6](https://k6.io/) is used to generate traffic to the API endpoints. The load script [load.js](./deployments/k6/load.js) will run for 15 minutes.
 
 ```
  docker compose run  k6 run /scripts/load.js
@@ -52,7 +52,7 @@ You will see K6 output in your terminal:
 
 5. Check out the dashboard in Grafana
 
-Go to [Grafana](http://localhost:3000/) in your browser (initial user/pwd: admin/admin) and open the dashboard called *SLOs for APIs managed by Tyk*.
+Go to [Grafana](http://localhost:3000/) in your browser (initial user/pwd: admin/admin) and open the dashboard called [*SLOs for APIs managed by Tyk*](./deployments/grafana/provisioning/dashboards/SLOs-for-APIs-managed-by-Tyk.json).
 
 You should see the data coming in:
 ![tyk_grafana_initial](https://user-images.githubusercontent.com/17831497/187455646-077ac8a2-8279-4c23-8ca2-d276c0b2180b.png)
