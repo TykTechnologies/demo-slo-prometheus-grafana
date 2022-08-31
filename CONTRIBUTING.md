@@ -16,14 +16,10 @@
 However, for those individuals who want a bit more guidance on the best way to contribute to the project, read on. This document will cover what we're looking for. By addressing all the points we're looking for, it raises the chances we can quickly merge or address your contributions.
 
 ### Our SLA for issues and bugs
-We do value the time each contributor spends contributing to this repo, and we work hard to make sure we respond to your issues and Pull request as soon as we can.
-
-Below we have outlined. 
+We do value the time each contributor spends contributing to this repo, and we work hard to make sure we respond to your issues and pull request as soon as we can.
 
 ### Filling an issue 
-Before opening an issue, if you have a question about Tyk or have a problem using it, please
-start with the GitHub search and our [community forum](https://community.tyk.io). 
-If that doesn't answer your questions, and you have an idea for a new capability  or if you think you found a bug, [file an
+Before opening an issue, if you have a question about Tyk or have a problem using it, please start with the GitHub search and our [community forum](https://community.tyk.io).  If that doesn't answer your questions, and you have an idea for a new capability  or if you think you found a bug, [file an
 issue].
 
 ### Contributor License Agreements
