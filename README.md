@@ -113,7 +113,7 @@ In [slos.rules.yml](./deployments/prometheus/slos.rules.yml) we calculate the ra
 ## Contribute
 
 You are welcome to contribute by 
-* asking questions / suggesting improvment / reporting issues in this [GitHub project](https://github.com/TykTechnologies/demo-slo-prometheus-grafana/issues) or in the [Tyk Community forum](https://community.tyk.io/)
+* asking questions / suggesting improvment / reporting issues in this [GitHub project](https://github.com/TykTechnologies/demo-slo-prometheus-grafana/issues) or in the [Tyk Community forum](https://community.tyk.io/t/slis-and-slos-with-prometheus-and-grafana-for-your-apis-managed-by-tyk/5657)
 * making pull request, see the [contributing guide](./CONTRIBUTING.md)
 
 
