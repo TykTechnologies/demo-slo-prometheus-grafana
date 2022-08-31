@@ -78,7 +78,7 @@ docker compose down
 
 ## How this works
 
-![slo_grafana](https://user-images.githubusercontent.com/17831497/187612448-f1353fc6-0367-4440-9d69-0a7c36ee0046.png)
+![slo_grafana](https://github.com/TykTechnologies/demo-slo-prometheus-grafana/blob/main/doc/slo_grafana.png)
 
 
 ### Tyk Gateway
