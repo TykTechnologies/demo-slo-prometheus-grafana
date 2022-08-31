@@ -112,10 +112,15 @@ In [slos.rules.yml](./deployments/prometheus/slos.rules.yml) we calculate the ra
 
 ## Contribute
 
+You are welcome to contribute by asking questions in this GitHub project or in the [Tyk Community forum](https://community.tyk.io/).
+
 
   
-## Questions & Feedback
-For question on products, please use [Tyk Community forum](https://community.tyk.io/).
+## Support, questions & feedback
+
+This is a demo project, using [Tyk Gateway](https://github.com/TykTechnologies/tyk) and [Tyk Pump](https://github.com/TykTechnologies/tyk-pump).
+
+For question about our products, please use [Tyk Community forum](https://community.tyk.io/).
 Clients can also use support@tyk.io.
 Potential clients and evaluators, please use info@tyk.io.
   
