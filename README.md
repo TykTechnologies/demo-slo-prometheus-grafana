@@ -78,58 +78,50 @@ docker compose down
 
 ## How this works
 
-![slo_grafana](https://user-images.githubusercontent.com/17831497/187612448-f1353fc6-0367-4440-9d69-0a7c36ee0046.png)
+![slo_grafana](https://github.com/TykTechnologies/demo-slo-prometheus-grafana/blob/main/doc/slo_grafana.png)
+
+### Configuration
+
+* Tyk API Gateway is configured to expose two API endpoint:
+  *  httpbin ([see .json config](./deployments/tyk-gateway/apps/httpbin.json))
+  *  httpstatus ([see .json config](./deployments/tyk-gateway/apps/httpstatus.json))
+* K6 will use the load script [load.js](./deployments/k6/load.js) to generate demo traffic to the API endpoints
+* Tyk Pump is configured to expose a metric endpoint for Prometheus ([see config](./deployments/tyk-pump/pump.conf)) with two custom metrics called `tyk_http_requests_total` and `tyk_http_latency`. Tyk Pump version >= 1.6. is needed for custom metrics.
+* Prometheus
+  * [prometheus.yml](./deployments/prometheus/prometheus.yml) is configured to automatically scrape Tyk Pump's metric endpoint
+  * [slos.rules.yml](./deployments/prometheus/slos.rules.yml) is used to calculate additional metrics needed for the remaining error budget
+* Grafana
+  * [prometheus_ds.yml](./deployments/grafana/provisioning/datasources/prometheus_ds.yml) is configured to connect Grafana automatically to Prometheus
+  * [SLOs-for-APIs-managed-by-Tyk.json](./deployments/grafana/provisioning/dashboards/SLOs-for-APIs-managed-by-Tyk.json) is the dashboard definition
 
 
-### Tyk Gateway
+### SLIs and SLOs
 
-### Tyk Pump
+Definition and example inspired from https://sre.google/workbook/slo-document/, https://landing.google.com/sre/workbook/chapters/alerting-on-slos/ and https://github.com/google/prometheus-slo-burn-example/blob/master/prometheus/slos.rules.yml.
 
-### Prometheus
+You will see different indicators displayed on the Grafana dashboard. 
 
-todo: add details about the query
+To calculate the SLO and the displayed error budget remaining, we use the following SLI/SLO:
+* SLI: the proportion of successful HTTP requests, as measured from Tyk API Gateway
+  *  Any HTTP status other than 500–599 is considered successful.
+  *  count of http_requests which do not have a 5XX status code divided by count of all http_requests
+*  SLO: 95% successful requests
 
-Example definition inspired from: https://sre.google/workbook/slo-document/. See also https://sre.google/workbook/implementing-slos/#what-to-measure-using-slis and https://sre.google/workbook/alerting-on-slos/ to learn more about SLIs and SLOs.
-
-
-__SLI: the proportion of successful requests, as measured from Tyk API Gateway__
-
-* Any HTTP status other than 500–599 is considered successful.
-* count of "api" http_requests which do not have a 5XX status code divided by count of all "api" http_requests
-* SLO: 95% successful requests
-
-### Grafana
+In [slos.rules.yml](./deployments/prometheus/slos.rules.yml) we calculate the rate of error per requests for the last 10 minute in `job:slo_errors_per_request:ratio_rate10m`. With `job:error_budget:remaining` we calculate the error budget remaining in percent. This is what we display in the Grafana dashboard. We use a threshold of 95% in the dashboard (every value below 95% is red).
 
 
+## Contribute
+
+You are welcome to contribute by 
+* asking questions / suggesting improvment / reporting issues in this [GitHub project](https://github.com/TykTechnologies/demo-slo-prometheus-grafana/issues) or in the [Tyk Community forum](https://community.tyk.io/t/slis-and-slos-with-prometheus-and-grafana-for-your-apis-managed-by-tyk/5657)
+* making pull request, see the [contributing guide](./CONTRIBUTING.md)
 
 
+## Support, questions & feedback
 
-## PRs
-Explain the requirements for a PR...
-  
-#### SLA
-First response (clarifying questions/guidance on improvements/answering questions) - target of 48 hours
-Detailed review and feedback on PRs - target 7 days
-  
-  
-  
-## Bugs
+This is a demo project, using [Tyk Gateway](https://github.com/TykTechnologies/tyk) and [Tyk Pump](https://github.com/TykTechnologies/tyk-pump) currently using release candidate (RC) versions of Tyk Gateway and Tyk Pump. 
 
-#### SLA
-First response (clarifying questions/guidance on improvements/answering questions) - target of 48 hours
-  
-  
-  
-## Features
-  
-#### SLA
-First response (clarifying questions/guidance on improvements/answering questions) - target 72 hours
-  
-### Questions
-For question on products, please use [Tyk Community forum](https://community.tyk.io/).
-  <br>
-Clients can also use support@tyk.io.
-   <br>
-Potential clients and evaluators, please use info@tyk.io.
-
+For question about our products, please use [Tyk Community forum](https://community.tyk.io/).
+<br />Clients can also use support@tyk.io.
+<br />Potential clients and evaluators, please use info@tyk.io.
   

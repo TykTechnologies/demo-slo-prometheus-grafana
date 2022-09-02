@@ -16,14 +16,10 @@
 However, for those individuals who want a bit more guidance on the best way to contribute to the project, read on. This document will cover what we're looking for. By addressing all the points we're looking for, it raises the chances we can quickly merge or address your contributions.
 
 ### Our SLA for issues and bugs
-We do value the time each contributor spends contributing to this repo, and we work hard to make sure we respond to your issues and Pull request as soon as we can.
-
-Below we have outlined. 
+We do value the time each contributor spends contributing to this repo, and we work hard to make sure we respond to your issues and pull request as soon as we can.
 
 ### Filling an issue 
-Before opening an issue, if you have a question about Tyk or have a problem using it, please
-start with the GitHub search and our [community forum](https://community.tyk.io). 
-If that doesn't answer your questions, and you have an idea for a new capability  or if you think you found a bug, [file an
+Before opening an issue, if you have a question about Tyk or have a problem using it, please start with the GitHub search and our [community forum](https://community.tyk.io).  If that doesn't answer your questions, and you have an idea for a new capability  or if you think you found a bug, [file an
 issue].
 
 ### Contributor License Agreements
@@ -47,22 +43,10 @@ We have created a few guidelines to help with creating PR. To make sure these re
     4. Provide a good PR description as a record of what change is being made and why it was made. Link to a GitHub issue if it exists.
     5. Tick all the relevant checkboxes in the PR form
     
-### Project Structure
-  [sample project structure](https://github.com/getkin/kin-openapi/tree/0846d700650012c02a16668ebd2bf1e77e9a1669#structure)
-  1. *folder one(package one) - explain what is in this package and what code in this package does ...*
-  2. *folder one(package one) - explain what is in this package and what code in this package does ...*
-  3. *folder one(package one) - explain what is in this package and what code in this package does ...*
-
-### Building and Running test
- *explain to the contributor how there can build and run test cases for this project*
-
-### Coding Conventions
-*if your team has any coding conventions write them here*
-
 ### Resources
 - [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
 - [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
 
 
-[file an issue]: https://github.com/TykTechnologies/tyk-templates/issues/new/choose
+[file an issue]: https://github.com/TykTechnologies/demo-slo-prometheus-grafana/issues/new/choose
 
