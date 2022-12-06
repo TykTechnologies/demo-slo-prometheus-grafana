@@ -61,8 +61,6 @@ services:
       - "9090:9090"
     networks:
       - tyk
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
 
   k6:
     image: grafana/k6:latest
@@ -72,8 +70,6 @@ services:
       - "6565:6565"
     volumes:
       - ./deployments/k6/:/scripts
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
 
   grafana:
     image: grafana/grafana-oss

@@ -8,4 +8,4 @@ rule_files:
 scrape_configs:
   - job_name: tyk
     static_configs:
-      - targets: ['host.docker.internal:8084']
+      - targets: ['tyk-pump:8084']
