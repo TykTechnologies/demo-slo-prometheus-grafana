@@ -50,9 +50,10 @@ services:
 
   prometheus:
     image: prom/prometheus
+    user: root   # added to avoid permission issues
     volumes:
       - ./deployments/prometheus/:/prometheus
-      - ./data/prometheus:/data
+      - prometheus-data:/data
     command:
       - '--config.file=/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/data'
@@ -60,6 +61,8 @@ services:
       - "9090:9090"
     networks:
       - tyk
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   k6:
     image: grafana/k6:latest
@@ -69,6 +72,8 @@ services:
       - "6565:6565"
     volumes:
       - ./deployments/k6/:/scripts
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   grafana:
     image: grafana/grafana-oss
@@ -77,13 +82,14 @@ services:
     volumes:
       - ./deployments/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources/
       - ./deployments/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards/
-      - ./data/grafana/:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
     networks:
       - tyk
       
 
 volumes:
   tyk-redis-data:
+  prometheus-data:
   grafana-data:
 
 networks:
