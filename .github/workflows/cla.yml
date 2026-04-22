@@ -1,36 +1,41 @@
 name: "CLA Assistant"
+
 on:
   issue_comment:
     types: [created]
   pull_request_target:
     types: [opened,closed,synchronize]
 
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
 jobs:
   CLAssistant:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        if: (github.event.comment.body == 'recheck' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request_target'
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1
+        with:
+          app-id: ${{ secrets.PROBE_APP_ID }}
+          private-key: ${{ secrets.PROBE_APP_PRIVATE_KEY }}
+          owner: TykTechnologies
+          repositories: cla
+
       - name: "CLA Assistant"
         if: (github.event.comment.body == 'recheck' || github.event.comment.body == 'I have read the CLA Document and I hereby sign the CLA') || github.event_name == 'pull_request_target'
-        # Beta Release
-        uses: contributor-assistant/github-action@v2.2.0
+        uses: contributor-assistant/github-action@b2a7f9fb90217ea0b8a0c95c288221457be4a31f # v2.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PERSONAL_ACCESS_TOKEN : ${{ secrets.ORG_GH_TOKEN}}
+          PERSONAL_ACCESS_TOKEN: ${{ steps.app-token.outputs.token }}
         with:
           path-to-signatures: 'signatures/version1/cla.json'
           path-to-document: 'https://github.com/TykTechnologies/tyk/blob/master/CLA.md'
-          # branch should not be protected
           branch: 'main'
-          ##people who don't have to sign the CLA comma separated e.g user1,user2
           allowlist: bot*
-
-          #below are the optional inputs - If the optional inputs are not given, then default values will be taken
           remote-organization-name: 'TykTechnologies'
-          remote-repository-name:  'cla'
-          #create-file-commit-message: 'For example: Creating file for storing CLA Signatures'
-          #signed-commit-message: 'For example: $contributorName has signed the CLA in #$pullRequestNo'
-          #custom-notsigned-prcomment: 'pull request comment with Introductory message to ask new contributors to sign'
-          #custom-pr-sign-comment: 'The signature to be committed in order to sign the CLA'
-          #custom-allsigned-prcomment: 'pull request comment when all contributors has signed, defaults to **CLA Assistant Lite bot** All Contributors have signed the CLA.'
+          remote-repository-name: 'cla'
           lock-pullrequest-aftermerge: false
-
