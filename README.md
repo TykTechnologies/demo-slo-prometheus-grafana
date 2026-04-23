@@ -19,9 +19,9 @@ git clone https://github.com/TykTechnologies/demo-slo-prometheus-grafana.git
 
 2. Start the services
 
-```
+```bash
 cd ./demo-slo-prometheus-grafana/
-docker compose up -d
+docker-compose up -d
 ```
 
 3. Verify that all services are running
@@ -41,8 +41,8 @@ docker compose up -d
 
 [K6](https://k6.io/) is used to generate traffic to the API endpoints. The load script [load.js](./deployments/k6/load.js) will run for 15 minutes.
 
-```
- docker compose run  k6 run /scripts/load.js
+```bash
+docker-compose run k6 run /scripts/load.js
 ```
 
 You will see K6 output in your terminal:
@@ -66,14 +66,14 @@ You can also filter the data per API:
 
 Stop the services
 
-```
-docker compose stop
+```bash
+docker-compose stop
 ```
 
 Remove the services
 
-```
-docker compose down
+```bash
+docker-compose down
 ```
 
 ## How this works

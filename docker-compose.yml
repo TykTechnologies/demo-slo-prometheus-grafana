@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   tyk-gateway:
-    image: tykio/tyk-gateway:v4.1rc26
+    image: tykio/tyk-gateway:v4.3.0
     ports:
       - 8080:8080
     networks:
@@ -23,7 +23,7 @@ services:
       - tyk-redis
 
   tyk-pump:
-    image: tykio/tyk-pump-docker-pub:v1.7.0-rc1
+    image: tykio/tyk-pump-docker-pub:v1.7.0
     ports:
     - 8083:8083
     - 8084:8084
@@ -50,9 +50,10 @@ services:
 
   prometheus:
     image: prom/prometheus
+    user: root   # added to avoid permission issues
     volumes:
       - ./deployments/prometheus/:/prometheus
-      - ./data/prometheus:/data
+      - prometheus-data:/data
     command:
       - '--config.file=/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/data'
@@ -77,13 +78,14 @@ services:
     volumes:
       - ./deployments/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources/
       - ./deployments/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards/
-      - ./data/grafana/:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
     networks:
       - tyk
       
 
 volumes:
   tyk-redis-data:
+  prometheus-data:
   grafana-data:
 
 networks:
